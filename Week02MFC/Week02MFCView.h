@@ -7,6 +7,9 @@
 
 class CWeek02MFCView : public CView
 {
+protected:
+	BOOL Pressed = FALSE;
+
 protected: // serialization에서만 만들어집니다.
 	CWeek02MFCView() noexcept;
 	DECLARE_DYNCREATE(CWeek02MFCView)
