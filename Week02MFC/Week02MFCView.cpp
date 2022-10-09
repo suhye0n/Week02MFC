@@ -27,6 +27,7 @@ BEGIN_MESSAGE_MAP(CWeek02MFCView, CView)
 	ON_COMMAND(ID_FILE_PRINT, &CView::OnFilePrint)
 	ON_COMMAND(ID_FILE_PRINT_DIRECT, &CView::OnFilePrint)
 	ON_COMMAND(ID_FILE_PRINT_PREVIEW, &CView::OnFilePrintPreview)
+	ON_WM_LBUTTONDBLCLK()
 END_MESSAGE_MAP()
 
 // CWeek02MFCView 생성/소멸
@@ -113,3 +114,12 @@ CWeek02MFCDoc* CWeek02MFCView::GetDocument() const // 디버그되지 않은 버
 
 
 // CWeek02MFCView 메시지 처리기
+
+void CWeek02MFCView::OnLButtonDblClk(UINT nFlags, CPoint point)
+{
+	// TODO: 여기에 메시지 처리기 코드를 추가 및/또는 기본값을 호출합니다.
+	CClientDC dc(this);
+	dc.Rectangle(point.x - 100, point.y - 100, point.x + 100, point.y + 100);
+
+	CView::OnLButtonDblClk(nFlags, point);
+}
